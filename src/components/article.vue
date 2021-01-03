@@ -1,42 +1,24 @@
 <template>
 <article>
   <h2>{{title}}</h2>
-  <div class="intro">
-    <p>
-     <span v-html="intro" ></span>
-    </p>
-  </div>
-  <div class="image">
-    <div class="image_wrapper" >
-      <img :src="images_medium">
+    <div class="intro"  v-html="intro"/>
+
+    <div class="image">
+      <div class="image_wrapper" >
+        <img :src="images_medium">
+      </div>
     </div>
 
-  </div>
-  <div class="text">
-    <p>
-      <span v-html="body"></span>
-
-    </p>
-  </div>
-  
-  <div>
-    <ul v-for="(tag, index) in tags" :key="index">
-      <li>
-        <span>{{ tag}}</span>
-      </li>
-
-
-    </ul>
-
-  </div>
-  
-  
-
-  
-
-
-
-</article>
+    <div class="text" v-html="body"/>
+   
+    <div>
+      <ul v-for="(tag, index) in tags" :key="index">
+        <li>
+          <span>{{ tag}}</span>
+        </li>
+      </ul>
+    </div>
+  </article>
 </template>
 
 <script>
@@ -69,19 +51,11 @@ export default {
         this.body = response.data.body;
         this.intro = response.data.intro;
         this.images_medium = response.data.images[0].medium;
-
-        console.log(this.images_medium);
-       
-
-        
-     
       })
       .catch(e=>{
         console.log(e)
       });
     },
-
-
   },
 
   mounted(){
@@ -92,10 +66,7 @@ export default {
 
 <style scoped>
 
-
-
 ul li{
-    display: inline-block;
     list-style-type: none;
     padding: 5px 10px;
     color: #fff;
@@ -119,7 +90,7 @@ h2{
     color: #14cc76;
     text-align: center;
 }
-.intro p{
+.intro{
     padding-left: 40px;
     padding-right: 40px;
       line-height: 150%;
@@ -140,6 +111,7 @@ h2{
 
 }
 .text{
+  margin-top: 30px;
   padding-left: 45px;
   text-align: left;
    line-height: 150%;

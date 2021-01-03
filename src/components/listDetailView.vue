@@ -1,7 +1,7 @@
 <template>
     
        <tbody>
-        <tr :class="isSelected == detailsview && isSelected != null ? 'rowcover' : 'sdf'">
+        <tr :class="isSelected == detailsview && isSelected != null ? 'rowcover' : 'detailsrow'">
           <td >{{detailsview.firstname}}</td>
           <td>{{detailsview.surname}}</td>
           <td>{{detailsview.sex | sex}}</td>
@@ -9,16 +9,14 @@
           <td>{{detailsview.phone}}</td>
         </tr>
         <tr>
-        <td colspan="10" class="details" :class="isSelected == detailsview && isSelected != null ? 'expanded' : 'another-class'">
+        <td colspan="10" class="details" :class="isSelected == detailsview && isSelected != null ? 'expanded' : 'vanish'">
              
                 <li class="person_info" >
-                    <div class="intro">
+                    <div>
                         <img :src="detailsview.images[0].small">
                     </div>
                 
-                    <div class="  content"  v-html="detailsview.intro" >
-                        
-                    </div>
+                    <div class="content" v-html="detailsview.intro" />
                 </li>
          </td>
          </tr>
@@ -106,7 +104,7 @@ height: auto;
 
 } 
 
-.sdf:hover{
+.detailsrow:hover{
   color:#ff57a2;
 }
 .expanded{
@@ -116,7 +114,7 @@ height: auto;
     column-span: all;
     border-bottom: 1px solid #ccc;
 }
-.another-class{
+.vanish{
   display:none;
   
 }
@@ -136,8 +134,6 @@ tr{
 
 }
 
-
-
 .person_info{
   padding-top: 10px;
   padding-bottom: 10px;
@@ -146,9 +142,7 @@ tr{
     display: flex;
     position: relative;
     height: 115px;
-    
        
 }
-
 
 </style>

@@ -35,10 +35,6 @@ import detailsView from './listDetailView.vue';
 
 export default {
 
-
-    name: 'Article',
-
-
     data(){
       return{
         selectedItem: null,
@@ -49,9 +45,6 @@ export default {
         currentPage: 1,
         clickedItem:"",
         pages: 0,
-        
-     
-        
 
       };
     },
@@ -76,7 +69,6 @@ export default {
 
             totalPages: function(){
               return this.list.length/this.pageSize;
-              
 
             }
         },
@@ -107,8 +99,6 @@ export default {
 
     },
 
-    
-
     handleClick(item){
       if(this.selectedItem != item){
         this.selectedItem = item;
@@ -117,8 +107,6 @@ export default {
       }
     },
 
-
- 
     sort:function(s) {
     
     if(s === this.currentSort) {
@@ -127,8 +115,6 @@ export default {
     this.currentSort = s;
   },
    
-
-
   },
 
   mounted(){
